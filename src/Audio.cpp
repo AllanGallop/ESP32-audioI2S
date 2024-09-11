@@ -812,7 +812,6 @@ bool Audio::connecttospeech(const char* speech, const char* lang){
     strcat(resp, "Host: ");
     strcat(resp, host);
     strcat(resp, "\r\n");
-    strcat(rqh, "User-Agent: MWR2.0\r\n");
     strcat(resp, "Accept-Encoding: identity\r\n");
     strcat(resp, "Accept: text/html\r\n");
     strcat(resp, "Connection: close\r\n\r\n");
@@ -910,7 +909,6 @@ bool Audio::connecttomarytts(const char* speech, const char* lang, const char* v
     strcat(resp, "Host: ");
     strcat(resp, host);
     strcat(resp, "\r\n");
-    strcat(rqh, "User-Agent: MWR2.0\r\n");
     strcat(resp, "Accept-Encoding: identity\r\n");
     strcat(resp, "Accept: text/html\r\n");
     strcat(resp, "Connection: close\r\n\r\n");
