@@ -137,7 +137,6 @@ public:
     uint32_t getReadPos();                      // read position relative to the beginning
     void     resetBuffer();                     // restore defaults
     bool     havePSRAM() { return m_f_psram; };
-    bool connecttoClient(Client& c, uint8_t codec = CODEC_MP3);
 
 protected:
     size_t   m_buffSizePSRAM    = UINT16_MAX * 10;   // most webstreams limit the advance to 100...300Kbytes
@@ -168,6 +167,7 @@ public:
     ~Audio();
     void setBufsize(int rambuf_sz, int psrambuf_sz);
     bool connecttohost(const char* host, const char* user = "", const char* pwd = "");
+    bool connecttoClient(Client& c, uint8_t codec = CODEC_MP3);
     bool connecttospeech(const char* speech, const char* lang);
     bool connecttomarytts(const char* speech, const char* lang, const char* voice);
     bool connecttoFS(fs::FS &fs, const char* path, int32_t resumeFilePos = -1);
