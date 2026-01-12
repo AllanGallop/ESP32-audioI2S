@@ -137,7 +137,7 @@ public:
     uint32_t getReadPos();                      // read position relative to the beginning
     void     resetBuffer();                     // restore defaults
     bool     havePSRAM() { return m_f_psram; };
-    bool connecttoClient(Client& c, uint8_t codec = 2); // 2 == MP3 (CODEC_MP3)
+    bool connecttoClient(Client& c, uint8_t codec = CODEC_MP3);
 
 protected:
     size_t   m_buffSizePSRAM    = UINT16_MAX * 10;   // most webstreams limit the advance to 100...300Kbytes

@@ -5605,25 +5605,16 @@ uint8_t Audio::determineOggCodec(uint8_t* data, uint16_t len){
 }
 //----------------------------------------------------------------------------------------------------------------------
 bool Audio::connecttoClient(Client& c, uint8_t codec) {
-    stopSong();
     setDefaults();
-    initInBuff();
 
     _client = &c;
-    m_f_ssl = false;
-    m_streamType = ST_WEBSTREAM;
-
-    // codec: 2 == MP3 in your enum
-    m_codec = codec;
     m_expectedCodec = codec;
-
-    if(!initializeDecoder()) {
-        audio_info("Decoder init failed");
-        return false;
-    }
+    m_codec = codec;
+    m_datamode = AUDIO_DATA;
 
     m_f_running = true;
     m_f_firstCall = true;
-    m_datamode = AUDIO_DATA;     // start consuming bytes directly
+
+    audio_info("connecttoClient()");
     return true;
 }
